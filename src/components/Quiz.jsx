@@ -161,24 +161,29 @@ const Quiz = () => {
   if (showResult) {
     const risk = getRiskLevel(score);
     return (
-      <div className="quiz-result card fade-in">
-        <FaShieldAlt className="result-icon" />
-        <h3>Quiz Complete!</h3>
-        <p className="score">Your Score: {score}/{questions.length}</p>
-        <div className="risk-level" style={{ color: risk.color }}>
-          Risk Level: {risk.level}
+      <section id="quiz-results" className="section">
+        <div className="quiz-result card fade-in">
+          <FaShieldAlt className="result-icon" />
+          <h3>Quiz Complete!</h3>
+          <p className="score">Your Score: {score}/{questions.length}</p>
+          <div className="risk-level" style={{ color: risk.color }}>
+            Risk Level: {risk.level}
+          </div>
+          <p className="advice">
+            {risk.level === 'Low' 
+              ? 'Great job! You have a strong understanding of cybersecurity.'
+              : risk.level === 'Medium'
+              ? 'Good effort! Consider reviewing some cybersecurity basics.'
+              : 'You should focus on learning more about cybersecurity practices.'}
+          </p>
         </div>
-        <p className="advice">
-          {risk.level === 'Low' 
-            ? 'Great job! You have a strong understanding of cybersecurity.'
-            : risk.level === 'Medium'
-            ? 'Good effort! Consider reviewing some cybersecurity basics.'
-            : 'You should focus on learning more about cybersecurity practices.'}
-        </p>
-        <style jsx>{`
+
+        <style jsx="true">{`
           .quiz-result {
             text-align: center;
             padding: 2rem;
+            max-width: 600px;
+            margin: 0 auto 2rem;
           }
 
           .result-icon {
@@ -200,9 +205,10 @@ const Quiz = () => {
 
           .advice {
             opacity: 0.9;
+            margin-bottom: 2rem;
           }
         `}</style>
-      </div>
+      </section>
     );
   }
 
@@ -232,10 +238,10 @@ const Quiz = () => {
             >
               {option}
               {answered && index === questions[currentQuestion].correct && (
-                <FaCheck className="icon" />
+                <FaCheck className="icon correct-icon" />
               )}
               {answered && index === selectedAnswer && index !== questions[currentQuestion].correct && (
-                <FaTimes className="icon" />
+                <FaTimes className="icon incorrect-icon" />
               )}
             </button>
           ))}
@@ -249,7 +255,7 @@ const Quiz = () => {
           </div>
         )}
       </div>
-      <style jsx>{`
+      <style jsx="true">{`
         .quiz-container {
           max-width: 800px;
           margin: 0 auto;
@@ -300,6 +306,14 @@ const Quiz = () => {
 
         .icon {
           font-size: 1.2rem;
+        }
+
+        .correct-icon {
+          color: #4CAF50;
+        }
+
+        .incorrect-icon {
+          color: #f44336;
         }
 
         .explanation {

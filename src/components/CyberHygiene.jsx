@@ -66,41 +66,106 @@ const TipCard = ({ tip, delay }) => {
       <div className="checkmark">
         <FaCheck />
       </div>
-      <style jsx>{`
+      <style jsx="true">{`
         .tip-card {
           opacity: 0;
           display: flex;
-          align-items: center;
-          gap: 1.5rem;
-          padding: 1.5rem;
+          align-items: flex-start;
+          gap: 2rem;
+          padding: 2rem;
+          min-height: 160px;
+          background: rgba(10, 10, 15, 0.9);
+          border: 1px solid var(--primary-color);
+          transition: all 0.3s ease;
+        }
+
+        .tip-card:nth-child(1) {
+          border-color: var(--primary-color);
+        }
+
+        .tip-card:nth-child(2) {
+          border-color: var(--accent-color-1);
+        }
+
+        .tip-card:nth-child(3) {
+          border-color: var(--accent-color-2);
+        }
+
+        .tip-card:nth-child(4) {
+          border-color: var(--accent-color-3);
+        }
+
+        .tip-card:nth-child(5) {
+          border-color: var(--accent-color-4);
+        }
+
+        .tip-card:nth-child(6) {
+          border-color: var(--primary-color);
+        }
+
+        .tip-card:nth-child(7) {
+          border-color: var(--accent-color-1);
         }
 
         .tip-icon {
-          font-size: 2rem;
-          color: var(--primary-color);
+          font-size: 2.8rem;
           flex-shrink: 0;
+          transition: color 0.3s ease;
         }
+
+        .tip-card:nth-child(1) .tip-icon { color: var(--primary-color); }
+        .tip-card:nth-child(2) .tip-icon { color: var(--accent-color-1); }
+        .tip-card:nth-child(3) .tip-icon { color: var(--accent-color-2); }
+        .tip-card:nth-child(4) .tip-icon { color: var(--accent-color-3); }
+        .tip-card:nth-child(5) .tip-icon { color: var(--accent-color-4); }
+        .tip-card:nth-child(6) .tip-icon { color: var(--primary-color); }
+        .tip-card:nth-child(7) .tip-icon { color: var(--accent-color-1); }
 
         .tip-content {
           flex-grow: 1;
+          text-align: left;
         }
 
         .tip-content h3 {
-          font-size: 1.2rem;
-          margin-bottom: 0.5rem;
+          font-size: 1.8rem;
+          margin-bottom: 0.8rem;
+          transition: color 0.3s ease;
         }
 
+        .tip-card:nth-child(1) h3 { color: var(--primary-color); }
+        .tip-card:nth-child(2) h3 { color: var(--accent-color-1); }
+        .tip-card:nth-child(3) h3 { color: var(--accent-color-2); }
+        .tip-card:nth-child(4) h3 { color: var(--accent-color-3); }
+        .tip-card:nth-child(5) h3 { color: var(--accent-color-4); }
+        .tip-card:nth-child(6) h3 { color: var(--primary-color); }
+        .tip-card:nth-child(7) h3 { color: var(--accent-color-1); }
+
         .tip-content p {
-          font-size: 0.9rem;
-          opacity: 0.8;
+          font-size: 1.2rem;
+          opacity: 0.9;
+          line-height: 1.6;
         }
+
+        .tip-card:hover {
+          transform: translateX(10px);
+          box-shadow: 0 0 20px rgba(0, 255, 157, 0.2);
+        }
+
+        .tip-card:nth-child(1):hover { box-shadow: 0 0 20px var(--primary-color-40); }
+        .tip-card:nth-child(2):hover { box-shadow: 0 0 20px var(--accent-color-1-40); }
+        .tip-card:nth-child(3):hover { box-shadow: 0 0 20px var(--accent-color-2-40); }
+        .tip-card:nth-child(4):hover { box-shadow: 0 0 20px var(--accent-color-3-40); }
+        .tip-card:nth-child(5):hover { box-shadow: 0 0 20px var(--accent-color-4-40); }
+        .tip-card:nth-child(6):hover { box-shadow: 0 0 20px var(--primary-color-40); }
+        .tip-card:nth-child(7):hover { box-shadow: 0 0 20px var(--accent-color-1-40); }
 
         .checkmark {
           color: var(--primary-color);
-          font-size: 1.5rem;
+          font-size: 2rem;
           opacity: 0;
           transform: scale(0);
           transition: all 0.3s ease;
+          flex-shrink: 0;
         }
 
         .tip-card:hover .checkmark {
@@ -110,6 +175,37 @@ const TipCard = ({ tip, delay }) => {
 
         .tip-card.fade-in {
           animation: fadeIn 0.6s ease-out forwards;
+        }
+
+        .tips-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+          gap: 2rem;
+          margin: 0 auto;
+          width: 100%;
+          max-width: 1600px;
+        }
+
+        @media (max-width: 768px) {
+          .tip-card {
+            padding: 2rem;
+          }
+
+          .tip-icon {
+            font-size: 2.5rem;
+          }
+
+          .tip-content h3 {
+            font-size: 1.8rem;
+          }
+
+          .tip-content p {
+            font-size: 1.2rem;
+          }
+
+          .checkmark {
+            font-size: 1.8rem;
+          }
         }
       `}</style>
     </div>
@@ -129,21 +225,13 @@ const CyberHygiene = () => {
           />
         ))}
       </div>
-      <style jsx>{`
+      <style jsx="true">{`
         #cyber-hygiene {
           text-align: center;
         }
 
         h2 {
           margin-bottom: 3rem;
-        }
-
-        .tips-grid {
-          display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-          gap: 1.5rem;
-          margin: 0 auto;
-          max-width: 1200px;
         }
       `}</style>
     </section>

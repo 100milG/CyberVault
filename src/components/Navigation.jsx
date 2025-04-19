@@ -1,13 +1,14 @@
 import { Link } from 'react-scroll';
-import { FaShieldAlt, FaUserSecret, FaClipboardCheck, FaQuestionCircle, FaComments } from 'react-icons/fa';
+import { FaShieldAlt, FaUserSecret, FaClipboardCheck, FaQuestionCircle, FaComments, FaTrophy, FaUsers, FaHome, FaLaptopCode, FaQuestion } from 'react-icons/fa';
 
 const Navigation = () => {
   const navItems = [
-    { to: 'threat-simulations', text: 'Threats', icon: <FaShieldAlt /> },
-    { to: 'cyber-hygiene', text: 'Hygiene', icon: <FaClipboardCheck /> },
-    { to: 'hacker-profiles', text: 'Profiles', icon: <FaUserSecret /> },
-    { to: 'quiz', text: 'Quiz', icon: <FaQuestionCircle /> },
-    { to: 'feedback', text: 'Feedback', icon: <FaComments /> },
+    { to: 'home', text: 'Home', icon: <FaHome /> },
+    { to: 'simulations', text: 'Simulations', icon: <FaLaptopCode /> },
+    { to: 'hygiene', text: 'Cyber Hygiene', icon: <FaShieldAlt /> },
+    { to: 'quiz', text: 'Quiz', icon: <FaQuestion /> },
+    { to: 'hackers', text: 'Hacker Profiles', icon: <FaUserSecret /> },
+    { to: 'community', text: 'Community', icon: <FaUsers /> },
   ];
 
   return (
@@ -29,7 +30,7 @@ const Navigation = () => {
           </Link>
         ))}
       </div>
-      <style jsx>{`
+      <style jsx="true">{`
         .navigation {
           position: fixed;
           top: 0;

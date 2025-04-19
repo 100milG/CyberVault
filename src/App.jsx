@@ -11,20 +11,30 @@ import Footer from './components/Footer'
 import './App.css'
 
 function App() {
-  const [quizScore, setQuizScore] = useState(0)
-
   return (
     <ParallaxProvider>
       <div className="app">
         <div className="matrix-background"></div>
         <Navigation />
         <div className="content">
-          <Hero />
-          <ThreatSimulations />
-          <CyberHygiene />
-          <HackerProfiles />
-          <Quiz setQuizScore={setQuizScore} />
-          <FeedbackForm />
+          <section id="home">
+            <Hero />
+          </section>
+          <section id="simulations">
+            <ThreatSimulations />
+          </section>
+          <section id="hygiene">
+            <CyberHygiene />
+          </section>
+          <section id="quiz">
+            <Quiz />
+          </section>
+          <section id="hackers">
+            <HackerProfiles />
+          </section>
+          <section id="community">
+            <FeedbackForm />
+          </section>
           <Footer />
         </div>
       </div>

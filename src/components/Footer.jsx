@@ -8,31 +8,37 @@ const Footer = () => {
         <div className="footer-section">
           <h4>Quick Links</h4>
           <nav className="footer-nav">
-            <Link to="threat-simulations" smooth={true} duration={500}>
+            <Link to="home" smooth={true} duration={500}>
+              Home
+            </Link>
+            <Link to="simulations" smooth={true} duration={500}>
               Threat Simulations
             </Link>
-            <Link to="cyber-hygiene" smooth={true} duration={500}>
+            <Link to="hygiene" smooth={true} duration={500}>
               Cyber Hygiene
-            </Link>
-            <Link to="hacker-profiles" smooth={true} duration={500}>
-              Hacker Profiles
             </Link>
             <Link to="quiz" smooth={true} duration={500}>
               Quiz
+            </Link>
+            <Link to="hackers" smooth={true} duration={500}>
+              Hacker Profiles
+            </Link>
+            <Link to="community" smooth={true} duration={500}>
+              Community
             </Link>
           </nav>
         </div>
 
         <div className="footer-section">
           <h4>Made by -</h4>
-        <h5>Krishna Patri - 23BRS1403</h5>
-        <h5>Soumil Gandhi - 23BRS1358</h5>
+        <h5>23BRS1358 - Soumil Gandhi</h5>
+        <h5>23BRS1403 - Krishna Patri</h5>
         </div>
 
         <div className="footer-section">
           <h4>Disclaimer</h4>
           <p className="disclaimer">
-This is a website created for web programming DA by Krishna Patri and Soumil Gandhi.
+This is a website created for web programming DA by Soumil Gandhi and Krishna Patri.
           </p>
         </div>
       </div>
@@ -43,7 +49,7 @@ This is a website created for web programming DA by Krishna Patri and Soumil Gan
         </p>
       </div>
 
-      <style jsx>{`
+      <style jsx="true">{`
         .footer {
           background: rgba(10, 10, 15, 0.95);
           border-top: 1px solid var(--primary-color);

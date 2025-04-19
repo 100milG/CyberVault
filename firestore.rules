@@ -15,5 +15,13 @@ service cloud.firestore {
                       request.resource.data.feedback is string;
       allow update, delete: if false;
     }
+
+    match /leaderboard/{scoreId} {
+      // Allow anyone to read and create leaderboard entries
+      allow read, create: if true;
+      
+      // Don't allow updates or deletions
+      allow update, delete: if false;
+    }
   }
 }
